@@ -1,4 +1,4 @@
-# AUTOMATED-TELLER-MACHINE-Project-
+# Banking Software System-Project-
 
 •	In this project I have implemented some mixed features of Banking & ATM.
 
