@@ -83,7 +83,7 @@ public class Signup3 extends JFrame implements ActionListener
 		add(number);
 		
 		// card label
-		JLabel carddetail = new JLabel("16 Digits Account No.");
+		JLabel carddetail = new JLabel("16 Digits Card No.");
 		carddetail.setFont(new Font("Raleway",Font.BOLD,12));
 		carddetail.setBounds(300, 210, 300, 20);
 		add(carddetail);
