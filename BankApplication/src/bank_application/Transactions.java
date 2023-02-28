@@ -29,44 +29,50 @@ public class Transactions extends JFrame implements ActionListener
 		image.setBounds(0, 0, 800, 650);
 		add(image);
 		
-		
+		// title
 		JLabel text = new JLabel("Please Select Your Transaction");
 		text.setBounds(210, 200, 700, 35);
 		text.setFont(new Font("Raleway", Font.BOLD,13));
 		text.setForeground(Color.WHITE);
 		image.add(text);
 		
-		
+		// deposite btn
 		deposite = new JButton("Deposite");
 		deposite.setBounds(150, 300, 120, 15);
 		deposite.addActionListener(this);
 		image.add(deposite);
 		
+		// withdraq btn
 		withdraw = new JButton("Withdraw");
 		withdraw.setBounds(330, 300, 120, 15);
 		withdraw.addActionListener(this);
 		image.add(withdraw);
 		
+		// fastcash btn
 		fastcash = new JButton("Fast Cash");
 		fastcash.setBounds(150, 330, 120, 15);
 		fastcash.addActionListener(this);
 		image.add(fastcash);
 		
+		// ministmt label
 		ministatement = new JButton("MiniStatement");
 		ministatement.setBounds(330, 330, 120, 15);
 		ministatement.addActionListener(this);
 		image.add(ministatement);
 		
+		// pinchange btn
 		pinchange = new JButton("Pin Change");
 		pinchange.setBounds(150, 360, 120, 15);
 		pinchange.addActionListener(this);
 		image.add(pinchange);
 		
+		// balance btn
 		balance = new JButton("Balance Enquiry");
 		balance.setBounds(330, 360, 120, 15);
 		balance.addActionListener(this);
 		image.add(balance);
 		
+		// exit btn
 		exit = new JButton("Exit");
 		exit.setBounds(330, 380, 120, 15);
 		exit.addActionListener(this);
@@ -81,6 +87,7 @@ public class Transactions extends JFrame implements ActionListener
 	
 	public void actionPerformed(ActionEvent e) 
 	{
+		// check which btn is clicked and open respective window
 		if(e.getSource() == exit)
 		{
 			System.exit(0);

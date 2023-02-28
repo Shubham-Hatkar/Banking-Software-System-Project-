@@ -27,7 +27,7 @@ public class Deposite extends JFrame implements ActionListener
 		image.setBounds(0, 0, 800, 650);
 		add(image);
 		
-		JLabel txt = new JLabel("Enter the Amount you want to deposite");
+		JLabel txt = new JLabel("Enter the Amount you want to deposit");
 		txt.setForeground(Color.WHITE);
 		txt.setFont(new Font("system", Font.BOLD,13));
 		txt.setBounds(170, 200, 700, 35);
@@ -40,7 +40,7 @@ public class Deposite extends JFrame implements ActionListener
 		image.add(amounttxt);
 		
 		
-		depositebtn = new JButton("Deposite");
+		depositebtn = new JButton("Deposit");
 		depositebtn.setBounds(330, 335, 120, 15);
 		depositebtn.addActionListener(this);
 		image.add(depositebtn);
@@ -64,7 +64,7 @@ public class Deposite extends JFrame implements ActionListener
 			Date date = new Date();
 			if(number.equals(""))
 			{
-				JOptionPane.showMessageDialog(null, "Please enter the amout you want to deposite");
+				JOptionPane.showMessageDialog(null, "Please enter the amout you want to deposit");
 			}
 			
 			else

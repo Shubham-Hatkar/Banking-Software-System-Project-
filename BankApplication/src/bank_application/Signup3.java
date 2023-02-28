@@ -11,9 +11,9 @@ import javax.swing.*;
 public class Signup3 extends JFrame implements ActionListener
 {
 	
-	JRadioButton r1, r2, r3, r4;
+	JRadioButton r1, r2, r3, r4; // options for choosing acc type
 	
-	JCheckBox c1, c2, c3, c4, c5, c6, c7;
+	JCheckBox c1, c2, c3, c4, c5, c6, c7; // checkboxes for what services user wants with his account.
 	
 	JButton submit, cancel;
 	
@@ -26,16 +26,19 @@ public class Signup3 extends JFrame implements ActionListener
 		
 		setLayout(null);
 		
+		// title
 		JLabel l1 = new JLabel("Page 3 : Account Details");
 		l1.setFont(new Font("Raleway",Font.BOLD,22));
 		l1.setBounds(300, 10, 500, 40);
 		add(l1);
 		
+		// acc label
 		JLabel type = new JLabel("Account Type : ");
 		type.setFont(new Font("Raleway",Font.BOLD,20));
 		type.setBounds(100, 70, 150, 30);
 		add(type);
 		
+		// 4 options for acc type
 		r1 = new JRadioButton("Saving Account ");
 		r1.setFont(new Font("Raleway",Font.BOLD,16));
 		r1.setBackground(Color.WHITE);
@@ -67,26 +70,30 @@ public class Signup3 extends JFrame implements ActionListener
 		groupac.add(r3);
 		groupac.add(r4);
 		
-		
+		// card label
 		JLabel card = new JLabel("Card Number : ");
 		card.setFont(new Font("Raleway",Font.BOLD,20));
 		card.setBounds(100, 180, 150, 30);
 		add(card);
 		
+		// number label
 		JLabel number = new JLabel("XXXX-XXXX-XXXX-9765");
 		number.setFont(new Font("Raleway",Font.BOLD,20));
 		number.setBounds(300, 180, 300, 30);
 		add(number);
 		
-		JLabel carddetail = new JLabel("16 Digits Pan No.");
+		// card label
+		JLabel carddetail = new JLabel("16 Digits Account No.");
 		carddetail.setFont(new Font("Raleway",Font.BOLD,12));
 		carddetail.setBounds(300, 210, 300, 20);
 		add(carddetail);
 		
+		// pin label
 		JLabel pin = new JLabel("PIN : ");
 		pin.setFont(new Font("Raleway",Font.BOLD,20));
 		pin.setBounds(100, 270, 150, 30);
 		add(pin);
+		
 		
 		JLabel pindetail = new JLabel("Your 4 Digits Password");
 		pindetail.setFont(new Font("Raleway",Font.BOLD,12));
@@ -103,7 +110,7 @@ public class Signup3 extends JFrame implements ActionListener
 		services.setBounds(100, 330, 200, 30);
 		add(services);
 		
-		
+		// options for customer - what services he/she needed
 		c1 = new JCheckBox("ATM Card");
 		c1.setBackground(Color.WHITE);
 		c1.setFont(new Font("Raleway", Font.BOLD,13));
@@ -146,7 +153,7 @@ public class Signup3 extends JFrame implements ActionListener
 		c7.setBounds(100, 500, 600, 20);
 		add(c7);
 		
-		
+		// Jbuttons for action
 		submit = new JButton("SUBMIT");
 		submit.setBackground(Color.BLACK);
 		submit.setForeground(Color.WHITE);
@@ -186,6 +193,7 @@ public class Signup3 extends JFrame implements ActionListener
 			
 			String pinnumber = "" + Math.abs(ran.nextLong() % 9000L);
 			
+			// user can select multiple options.
 			String facility = "";
 			if(c1.isSelected()) facility += " ATM Card";
 			if(c2.isSelected()) facility += " Internet Banking";
@@ -199,6 +207,7 @@ public class Signup3 extends JFrame implements ActionListener
 				if(accounttype == null) JOptionPane.showConfirmDialog(null, "Account Type Required");
 				else
 				{
+					// same thing create conn, create query, perform query
 					Conn conn = new Conn();
 					String query1 = "insert into signup3 values('" + formno +"','" + accounttype +"','" + cardnumber +"','" + pinnumber +"','" + facility + "')";  
 					String query2 = "insert into login values('" + formno +"','" + cardnumber +"','" + pinnumber +"')";  

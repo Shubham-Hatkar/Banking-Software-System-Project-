@@ -10,7 +10,7 @@ public class Login extends JFrame implements ActionListener
 {
 	JButton loginbtn, signupbtn, clearbtn;
 	JTextField cardtxt;
-	JPasswordField pintxt;
+	JPasswordField pintxt; // Here jpassword field - > will not show the actual txt
 	
 	Login()
 	{
@@ -27,7 +27,8 @@ public class Login extends JFrame implements ActionListener
 		
 		getContentPane().setBackground(Color.WHITE);
 		
-		JLabel welcomelabel = new JLabel("Welcome to ATM");
+		// Welcome Label
+		JLabel welcomelabel = new JLabel("Welcome to OurBank");
 		welcomelabel.setFont(new Font("Osward", Font.BOLD,38));
 		welcomelabel.setBounds(250, 40, 400, 40);
 		add(welcomelabel);
@@ -42,6 +43,7 @@ public class Login extends JFrame implements ActionListener
 		pinlabel.setBounds(120, 220, 180, 40);
 		add(pinlabel);
 		
+		// Assign card and pass textfield globally so that we can use that in another function.(action performed)
 		cardtxt = new JTextField();
 		cardtxt.setBounds(330, 160, 250, 30);
 		cardtxt.setFont(new Font("Arial",Font.BOLD,15));
@@ -52,13 +54,15 @@ public class Login extends JFrame implements ActionListener
 		pintxt.setFont(new Font("Arial",Font.BOLD,15));
 		add(pintxt);
 		
-		loginbtn = new JButton("SIGN IN");
+		// Login JButton and here action listner is added
+		loginbtn = new JButton("LOG IN");
 		loginbtn.setBounds(330, 300, 100, 30);
 		loginbtn.setBackground(Color.BLACK);
 		loginbtn.setForeground(Color.WHITE);
 		loginbtn.addActionListener(this);
 		add(loginbtn);
 		
+		// Clear JButton and here also action listener is added
 		clearbtn = new JButton("CLEAR");
 		clearbtn.setBounds(470, 300, 100, 30);
 		clearbtn.setBackground(Color.BLACK);
@@ -80,6 +84,7 @@ public class Login extends JFrame implements ActionListener
 	
 	public void actionPerformed(ActionEvent ae)
 	{
+		// checking which button is clicked.
 		if(ae.getSource() == clearbtn)
 		{
 			cardtxt.setText("");
@@ -87,24 +92,29 @@ public class Login extends JFrame implements ActionListener
 		}
 		else if(ae.getSource() == loginbtn)
 		{
+			// Make a connection with DB
 			Conn conn = new Conn();
+			
+			// Getting all the fields which are required to perform query
 			String cardnumber = cardtxt.getText();
 			String pinnumber = pintxt.getText(); // passwordfield
 			
+			// Creating query
 			String query = "select * from login where cardnumber = '" + cardnumber + "' and pin = '" + pinnumber + "'";
 			
-			
+			// exception handling
 			try
 			{
+				// resultset will store result after performing query
 				ResultSet rs = conn.s.executeQuery(query);
 				if(rs.next())
 				{
-					setVisible(false);
-					new Transactions(pinnumber).setVisible(true);
+					setVisible(false); // closing curr window
+					new Transactions(pinnumber).setVisible(true); // opening new window
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Incorrect Card number or pin");
+					JOptionPane.showMessageDialog(null, "Incorrect Card number or pin"); // showing errot mgs
 				}
 			}
 			catch(Exception e)

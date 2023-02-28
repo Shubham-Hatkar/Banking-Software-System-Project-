@@ -10,21 +10,24 @@ import java.awt.event.*;
 
 public class Signup1 extends JFrame implements ActionListener
 {
-	Random ran;
+	Random ran; // Random no for creating form numbers
 	
 	int random = 0;
 	
+	// i have declare some fields globally so that we can use them wherever it needed.
 	JTextField nametxt, fnametxt, dobtxt, emailtxt, addresstxt, citytxt, statetxt, pincodetxt;
 	
-	JButton next;
+	JButton next; 
 	
 	JRadioButton maleradiobtn, femaleradiobtn, marriedradio, unmarriedradio, otherradio;
 	
-	JDateChooser datechooser;
+	JDateChooser datechooser; // Taken jar file and added into libraries
 	
 	Signup1()
 	{
 		setLayout(null);
+		
+		// Forming random number using random class
 		ran = new Random();
 		random = (Math.abs(ran.nextInt())% 1000);
 		JLabel formno = new JLabel("APPLICATION FORM NO : " + random); // Random class in util package
@@ -34,48 +37,55 @@ public class Signup1 extends JFrame implements ActionListener
 		
 		getContentPane().setBackground(Color.WHITE);
 		
-		
+		// personal detail label
 		JLabel persnaldet = new JLabel("Personal Details");
 		persnaldet.setFont(new Font("Roleway", Font.BOLD,22));
 		persnaldet.setBounds(260, 70, 200, 30);
 		add(persnaldet);
 		
+		// name label
 		JLabel name = new JLabel("Name : ");
 		name.setFont(new Font("Roleway", Font.BOLD,20));
 		name.setBounds(100, 140, 100, 30);
 		add(name);
 		
+		// name textfield
 		nametxt = new JTextField();
 		nametxt.setFont(new Font("Roleway",Font.BOLD,14));
 		nametxt.setBounds(290, 140, 300, 30);
 		add(nametxt);
 		
-		
+		// father name label
 		JLabel fname = new JLabel("Father's Name : ");
 		fname.setFont(new Font("Roleway", Font.BOLD,20));
 		fname.setBounds(100, 180, 180, 30);
 		add(fname);
 		
+		// father name textfield
 		fnametxt = new JTextField();
 		fnametxt.setFont(new Font("Roleway",Font.BOLD,14));
 		fnametxt.setBounds(290, 180, 300, 30);
 		add(fnametxt);
 		
+		// DOB label
 		JLabel dob = new JLabel("Date Of Birth : ");
 		dob.setFont(new Font("Roleway", Font.BOLD,20));
 		dob.setBounds(100, 220, 150, 30);
 		add(dob);
 		
+		// Calender for DOB
 		datechooser = new JDateChooser();
 		datechooser.setBounds(290, 220, 150, 30);
 		datechooser.setFont(new Font("Roleway",Font.BOLD,14));
 		add(datechooser);
 		
+		// gender label
 		JLabel gender = new JLabel("Gender : ");
 		gender.setFont(new Font("Roleway", Font.BOLD,20));
 		gender.setBounds(100, 260, 150, 30);
 		add(gender);
 		
+		// options for gender
 		maleradiobtn = new JRadioButton("Male");
 		femaleradiobtn = new JRadioButton("Female");
 		maleradiobtn.setBounds(290, 260, 70, 30);
@@ -90,22 +100,25 @@ public class Signup1 extends JFrame implements ActionListener
 		gendergroup.add(maleradiobtn);
 
 		
-		
+		// email label
 		JLabel email = new JLabel("Email : ");
 		email.setFont(new Font("Roleway", Font.BOLD,20));
 		email.setBounds(100, 300, 150, 30);
 		add(email);
 		
+		// email txtfield
 		emailtxt = new JTextField();
 		emailtxt.setFont(new Font("Roleway",Font.BOLD,14));
 		emailtxt.setBounds(290, 300, 300, 30);
 		add(emailtxt);
 		
+		// marital label
 		JLabel marital = new JLabel("Marital Status : ");
 		marital.setFont(new Font("Roleway", Font.BOLD,20));
 		marital.setBounds(100, 340, 150, 30);
 		add(marital);
 		
+		// options for marital
 		marriedradio = new JRadioButton("Married");
 		marriedradio.setBackground(Color.WHITE);
 		marriedradio.setBounds(290, 340, 100, 30);
@@ -128,47 +141,55 @@ public class Signup1 extends JFrame implements ActionListener
 
 		
 		
-		
+		// address label
 		JLabel address = new JLabel("Address : ");
 		address.setFont(new Font("Roleway", Font.BOLD,20));
 		address.setBounds(100, 380, 150, 30);
 		add(address);
 		
+		// address txtfield
 		addresstxt = new JTextField();
 		addresstxt.setFont(new Font("Roleway",Font.BOLD,14));
 		addresstxt.setBounds(290, 380, 300, 30);
 		add(addresstxt);
 		
+		// city label
 		JLabel city = new JLabel("City : ");
 		city.setFont(new Font("Roleway", Font.BOLD,20));
 		city.setBounds(100, 420, 150, 30);
 		add(city);
 		
+		// city txtfield
 		citytxt = new JTextField();
 		citytxt.setFont(new Font("Roleway",Font.BOLD,14));
 		citytxt.setBounds(290, 420, 300, 30);
 		add(citytxt);
 		
+		// state label
 		JLabel state = new JLabel("State : ");
 		state.setFont(new Font("Roleway", Font.BOLD,20));
 		state.setBounds(100, 460, 150, 30);
 		add(state);
 		
+		// state txtfield
 		statetxt = new JTextField();
 		statetxt.setFont(new Font("Roleway",Font.BOLD,14));
 		statetxt.setBounds(290, 460, 300, 30);
 		add(statetxt);
 		
+		// pincode label
 		JLabel pincode = new JLabel("Pin Code : ");
 		pincode.setFont(new Font("Roleway", Font.BOLD,20));
 		pincode.setBounds(100, 500, 150, 30);
 		add(pincode);
 		
+		// pincode txtfield
 		pincodetxt = new JTextField();
 		pincodetxt.setFont(new Font("Roleway",Font.BOLD,14));
 		pincodetxt.setBounds(290, 500, 300, 30);
 		add(pincodetxt);
 		
+		// next jbutton
 		next = new JButton("Next");
 		next.setBackground(Color.BLACK);
 		next.setForeground(Color.WHITE);
@@ -185,6 +206,7 @@ public class Signup1 extends JFrame implements ActionListener
 	
 	public void actionPerformed(ActionEvent ae)
 	{
+		// getting all the data required for query
 		String formno = "" + random;
 		String name = nametxt.getText();
 		String fname = fnametxt.getText();
@@ -239,7 +261,7 @@ public class Signup1 extends JFrame implements ActionListener
 			}
 			
 			
-			Conn c = new Conn();
+			Conn c = new Conn(); // connection
 			String query = "insert into signup values('" + formno + "','" + name + "','" + fname + "','" + dob + "','" + gender + "','" + email + "','" + marital + "','" + address + "','" + city + "','" + pincode + "','" + state + "')";
 			c.s.executeUpdate(query);
 			
